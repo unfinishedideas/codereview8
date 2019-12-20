@@ -1,12 +1,13 @@
 class Definition
-  attr_reader :text, :id
+  attr_reader :text, :id, :word_id
 
   @@definitions_list = {}
   @@def_rows = 0
 
-  def initialize(text, id)
+  def initialize(text, id, word_id)
     @text = text
     @id = id || @@def_rows += 1
+    @word_id = word_id
   end
 
   def ==(definition_to_compare)
@@ -18,7 +19,7 @@ class Definition
   end
 
   def save()
-    @@definitions_list[self.id] = Definition.new(self.text, self.id)
+    @@definitions_list[self.id] = Definition.new(self.text, self.id, self.word_id)
   end
 
   def self.clear()
@@ -32,6 +33,10 @@ class Definition
 
   def update(text)
     @text = text
+  end
+
+  def update_word_id(word_id)
+    @word_id = word_id
   end
 
   def delete()

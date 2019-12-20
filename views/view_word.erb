@@ -3,7 +3,7 @@
 <h3>Definitions</h3>
 <ol>
   <% @definitions.each do |definition| %>
-  <li><%= definition %></li>
-  <a href="home/<%= @word.id %>/edit/<%= definition.id %>">Edit</a>
+  <li><%= definition.text %></li>
+  <a href="<%= @word.id %>/edit/<%= definition.id %>">Edit</a>
   <% end %>
 </ol>
