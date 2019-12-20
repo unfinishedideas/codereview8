@@ -77,4 +77,13 @@ describe '#Word' do
     end
   end
 
+  describe('.update') do
+    it('updates the information on a word') do
+      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1.save
+      word1.update("Goomzini", ["A weird crossover creature from Mario"])
+      expect(word1.name).to(eq("Goomzini"))
+    end
+  end
+
 end
