@@ -57,4 +57,14 @@ describe '#Definition' do
     end
   end
 
+  describe('#update') do
+    it('should be able to update the text of a definition') do
+      definition1 = Definition.new('Something shiny', nil)
+      definition1.save
+      definition1.update("nope")
+      expect(definition1.text).to(eql("nope"))
+    end
+  end
+
+
 end
