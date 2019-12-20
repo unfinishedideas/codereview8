@@ -1,11 +1,11 @@
 class Word
-  attr_reader :name, :id, :definitions
+  attr_reader :name, :id, :definition
   @@words_list = {}
   @@rows = 0
 
-  def initialize(name, definitions, id)
+  def initialize(name, definition, id)
     @name = name
-    @definitions = []
+    @definition = [definition]
     @id = id || @@rows += 1
   end
 
@@ -14,7 +14,7 @@ class Word
   end
 
   def save
-    @@words_list[self.id] = Word.new(self.name, self.definitions, self.id)
+    @@words_list[self.id] = Word.new(self.name, self.definition, self.id)
   end
 
   def delete()
@@ -36,7 +36,7 @@ class Word
 
   def update(name, definitions)
     @name = name
-    @definitions = definitions
+    @definitions = [definitions]
   end
 
   def self.search(string)

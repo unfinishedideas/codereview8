@@ -5,6 +5,7 @@ require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
 
+# Get Homepage
 get('/') do
   @words = Word.all()
   erb(:home)
@@ -15,28 +16,28 @@ get('/home/') do
   erb(:home)
 end
 
+# Get New Word page
 get('/home/new_word') do
   @words = Word.all()
   erb(:new_word)
 end
 
+# Get View Word page
+get('/home/:word_id') do
+  @word = Word.find(params[:word_id].to_i())
+  @definitions = @word.definitions
+  binding.pry
+  erb(:view_word)
+end
+
+
+# Post new word, return to home
 post('/home') do
   name = params[:name_input]
   definition = params[:definition_input]
   new_word = Word.new(name, definition, nil)
-  binding.pry
   new_word.save()
   @words = Word.all()
+  binding.pry
   erb(:home)
 end
-
-# post('/LOTR_Fest') do
-#   name = params[:stage_name]
-#   location = params[:stage_location]
-#   date = params[:stage_date]
-#   ##THIS IS WHERE A IF/ELSE WOULD GO TO PREVENT EMPTY INPUT
-#   stage = Stage.new(nil, name, location, date)
-#   stage.save()
-#   @stages = Stage.all()
-#   erb(:home)
-# end

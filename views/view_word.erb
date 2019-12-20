@@ -1,1 +1,9 @@
 <h2 class="page_header"><%= @word.name %></h2>
+
+<h3>Definitions</h3>
+<ol>
+  <% @definitions.each |definition| do %>
+  <li><%= definition %></li>
+  <a href="home/<%= @word.id %>/edit/<%= definition.id %>">Edit</a>
+  <% end %>
+</ol>

@@ -7,7 +7,7 @@ describe '#Word' do
     Word.clear()
   end
 
-  describe('#all') do
+  describe('.all') do
     it('Shows all the words') do
       word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
       word1.save
@@ -27,7 +27,7 @@ describe '#Word' do
     end
   end
 
-  describe('#clear') do
+  describe('.clear') do
     it('Tests clear function which should erase @@words list') do
       word1 = Word.new("Zoombini", "A strange fluffy creature with mismatched features", nil)
       word1.save
@@ -38,7 +38,7 @@ describe '#Word' do
     end
   end
 
-  describe('.save') do
+  describe('#save') do
     it('Saves a word to @@words_list class hash variable') do
       word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
       word1.save
@@ -46,7 +46,7 @@ describe '#Word' do
     end
   end
 
-  describe('.delete') do
+  describe('#delete') do
     it ('deletes a word from @@words_list') do
       word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
       word1.save
@@ -77,7 +77,7 @@ describe '#Word' do
     end
   end
 
-  describe('.update') do
+  describe('#update') do
     it('updates the information on a word') do
       word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
       word1.save
