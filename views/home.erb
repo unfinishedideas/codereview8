@@ -4,7 +4,7 @@
 <h3>Click on a word to see its definitions</h3>
 <ul>
   <% @words.sort_by(&:name).each do |word| %>
-  <li><a href="/home/<%= word.id %>"><%= word.name %></a></li>
+  <li><a href="/home/word/<%= word.id %>"><%= word.name %></a></li>
   <% end %>
 </ul>
 <% else %>

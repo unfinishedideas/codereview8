@@ -23,17 +23,27 @@ get('/home/new_word') do
 end
 
 # Get View Word page
-get('/home/:word_id') do
+get('/home/word/:word_id') do
   @word = Word.find(params[:word_id].to_i())
-  @definitions = @word.definitions
+  @definitions_list = @word.definitions
   erb(:view_word)
 end
 
 # Get Edit Definition Page
-get('/home/:word_id/edit/:definition_id') do
-  @word = Word.find(params[:word_id].to_i)
-  @definition = Definition.find(params[:definition_id].to_i)
+get('/home/word/:word_id/definition/:definition_id') do
+  @word = Word.find(params[:word_id].to_i())
+  @definition = Definition.find(params[:definition_id].to_i())
+  binding.pry
   erb(:edit_definition)
+end
+
+# Get New Definition page
+get('/home/word/:word_id/new_definition') do
+  @word = Word.find(params[:word_id].to_i)
+  new_definition = Definition.new(params[:new_definition], nil, @word.id)
+  new_definition.save
+  @definitions_list = @word.definitions
+  erb(:view_word)
 end
 
 # Post new word, return to home
@@ -45,5 +55,21 @@ post('/home') do
   definition.save()
   new_word.save()
   @words = Word.all()
+  erb(:home)
+end
+
+# Delete a definition
+delete('/home/word/:word_id/definition/:definition_id') do
+  @word = Word.find(params[:word_id].to_i)
+  @definition = Definition.find(params[:definition_id].to_i)
+  @definition.delete
+  @definitions_list = @word.definitions
+  erb(:view_word)
+end
+
+delete('/LOTR_Fest/:id') do
+  @stage = Stage.find(params[:id].to_i)
+  @stage.delete()
+  @stages = Stage.all()
   erb(:home)
 end

@@ -6,7 +6,11 @@
 <form action="/home/<%= @word.id %>" method="post">
   <label for="redefine_input">New Definition: </label>
   <input type="text" name="redefine_input">
-    <button type="submit" name="button">Done</button>
+  <button type="submit" name="button">Done</button>
 </form>
 <br>
-<button type="button" name="delete">Delete</button>
+
+<form action="/home/<%= @word.id %>/definition/<%= @definition.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit">Delete Definition</button>
+</form>
