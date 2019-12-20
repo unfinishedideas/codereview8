@@ -1,6 +1,6 @@
 class Definition
   attr_reader :text, :id
-  
+
   @@definitions_list = {}
   @@def_rows = 0
 
@@ -35,7 +35,7 @@ class Definition
   end
 
   def delete()
-    @@definitions.delete(self.id)
+    @@definitions_list.delete(self.id)
   end
 
   def self.search(string)

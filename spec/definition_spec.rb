@@ -66,5 +66,19 @@ describe '#Definition' do
     end
   end
 
+  describe('#delete') do
+    it('should delete a definition from @@definitions_list') do
+      definition1 = Definition.new('Something shiny', nil)
+      definition1.save
+      definition2 = Definition.new('Is really old', nil)
+      definition2.save
+      definition1.delete
+      # For some reason when definition is in an array it would not overwrite == operator like above, using test_array to prove it is in fact deleting definition1 here
+      test_array = Definition.all
+      expect(test_array[0].text).to(eql(definition2.text))
+      expect(test_array.length).to(eql(1))
+    end
+  end
+
 
 end
