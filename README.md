@@ -36,8 +36,8 @@ _for pathing {GET, POST, PATCH, DELETE}_
  **CSS**  
 _for general styling_
 
-**Bootstrap 4.3.1**  
-_for containers / grid layout / button graphics_
+<!-- **Bootstrap 4.3.1**  
+_for containers / grid layout / button graphics_ -->
 
 
 ### License
