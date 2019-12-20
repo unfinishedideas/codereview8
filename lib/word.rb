@@ -3,7 +3,7 @@ class Word
   @@words_list = {}
   @@rows = 0
 
-  def initialize(name, id, definitions)
+  def initialize(name, definitions, id)
     @name = name
     @id = id || @@rows += 1
   end

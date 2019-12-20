@@ -8,7 +8,7 @@
 ## Views
 ###### Home
 This page displays the current list of words and provides clickable links to display each one's definition individually
-###### Define Word
+###### New Word
 This page is where a user can create a word and it's initial definition
 ###### View Word
 This page is where a user can view a specific word and it's current definitions as well as get access to the Edit Word page through a clickable link
