@@ -39,11 +39,8 @@ class Word
     @definitions = definitions
   end
 
-  def self.search(name)
-    return_arry = @@words.values.select { |word| word.name.downcase == name.downcase}
-    if return_arry != []
-      return_arry.sort_by(&:name)
-    end
+  def self.search(string)
+    @@words_list.values().select {|e| /#{string}/i.match(e.name) }
   end
 
   # def definitions()

@@ -58,12 +58,22 @@ describe '#Word' do
   end
 
   describe('.find') do
-    it ('finds a word from @@words_list') do
+    it ('finds a word from @@words_list by ID') do
       word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
       word1.save
       word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
       word2.save
       expect(Word.find(2)).to(eq(word2))
+    end
+  end
+
+  describe('.search') do
+    it ('finds a word from @@words_list by name regardless of case') do
+      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1.save
+      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2.save
+      expect(Word.search('zOOm')).to(eq([word1]))
     end
   end
 
