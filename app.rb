@@ -26,10 +26,15 @@ end
 get('/home/:word_id') do
   @word = Word.find(params[:word_id].to_i())
   @definitions = @word.definitions
-  binding.pry
   erb(:view_word)
 end
 
+# Get Edit Definition Page
+get('/home/:word_id/edit/:definition_id') do
+  @word = Word.find(params[:word_id].to_i)
+  @definition = Definition.find(params[:definition_id].to_i)
+  erb(:edit_definition)
+end
 
 # Post new word, return to home
 post('/home') do
@@ -37,7 +42,6 @@ post('/home') do
   definition = Definition.new(params[:definition_input], nil, 0)
   new_word = Word.new(name, [definition], nil)
   new_word.definitions[0].update_word_id(new_word.id)
-  binding.pry
   definition.save()
   new_word.save()
   @words = Word.all()

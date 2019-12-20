@@ -1,0 +1,12 @@
+<h2 class="page_header">Editing Definition for <%= @word.name %></h2>
+<h3>Original:</h3>
+<p><em><%= @definition.text %></em></p>
+<br><br>
+
+<form action="/home/<%= @word.id %>" method="post">
+  <label for="redefine_input">New Definition: </label>
+  <input type="text" name="redefine_input">
+    <button type="submit" name="button">Done</button>
+</form>
+<br>
+<button type="button" name="delete">Delete</button>
