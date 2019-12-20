@@ -25,4 +25,14 @@ describe '#Word' do
     end
   end
 
+  describe('#==') do
+    it('Tests overwrite of == operator to match words by name') do
+      word1 = Word.new("Zoombini", "A strange fluffy creature with mismatched features", nil)
+      word1.save
+      word2 = Word.new("Zoombini", "A strange fluffy creature with mismatched features", nil)
+      word2.save
+      expect(word1).to(eq(word2))
+    end
+  end
+
 end
