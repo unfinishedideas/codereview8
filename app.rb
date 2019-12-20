@@ -33,7 +33,6 @@ end
 get('/home/word/:word_id/definition/:definition_id') do
   @word = Word.find(params[:word_id].to_i())
   @definition = Definition.find(params[:definition_id].to_i())
-  binding.pry
   erb(:edit_definition)
 end
 
@@ -59,17 +58,11 @@ post('/home') do
 end
 
 # Delete a definition
-delete('/home/word/:word_id/definition/:definition_id') do
+delete('/home/word/:word_id/definition/:definition_id/edit') do
   @word = Word.find(params[:word_id].to_i)
   @definition = Definition.find(params[:definition_id].to_i)
   @definition.delete
-  @definitions_list = @word.definitions
+  @word.update(@word.name, @word.definitions)
   erb(:view_word)
-end
-
-delete('/LOTR_Fest/:id') do
-  @stage = Stage.find(params[:id].to_i)
-  @stage.delete()
-  @stages = Stage.all()
-  erb(:home)
+  binding.pry
 end
