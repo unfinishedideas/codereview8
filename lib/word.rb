@@ -1,11 +1,11 @@
 class Word
-  attr_reader :name, :id, :definition
+  attr_reader :name, :id, :definitions
   @@words_list = {}
   @@rows = 0
 
-  def initialize(name, definition, id)
+  def initialize(name, definitions, id)
     @name = name
-    @definition = [definition]
+    @definitions = definitions
     @id = id || @@rows += 1
   end
 
@@ -13,8 +13,8 @@ class Word
     (self.name() == word_to_compare.name())
   end
 
-  def save
-    @@words_list[self.id] = Word.new(self.name, self.definition, self.id)
+  def save()
+    @@words_list[self.id] = Word.new(self.name, self.definitions, self.id)
   end
 
   def delete()

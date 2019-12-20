@@ -34,7 +34,9 @@ end
 # Post new word, return to home
 post('/home') do
   name = params[:name_input]
-  definition = params[:definition_input]
+  definition = Definition.new(params[:definition_input], nil, NEEDS_WORD_ID)
+  binding.pry
+  definition.save()
   new_word = Word.new(name, definition, nil)
   new_word.save()
   @words = Word.all()
