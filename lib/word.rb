@@ -16,8 +16,8 @@ class Word
     return @@words_list.values()
   end
 
-  def self.save()
-    @@words_list[self.id] = Word.new(self.name, self.id, self.definitions)
+  def save
+    @@words_list[self.id] = Word.new(self.name, self.definitions, self.id)
   end
 
   def self.clear()
@@ -45,8 +45,7 @@ class Word
     end
   end
 
-  def definitions()
-    Definitions.find_by_word(self.id)
-  end
-
+  # def definitions()
+  #   Definition.find_by_word(self.id)
+  # end
 end
