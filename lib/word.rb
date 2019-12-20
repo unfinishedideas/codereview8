@@ -13,12 +13,16 @@ class Word
     (self.name() == word_to_compare.name())
   end
 
-  def self.all()
-    return @@words_list.values()
-  end
-
   def save
     @@words_list[self.id] = Word.new(self.name, self.definitions, self.id)
+  end
+
+  def delete()
+    @@words_list.delete(self.id)
+  end
+
+  def self.all()
+    return @@words_list.values()
   end
 
   def self.clear()
@@ -33,10 +37,6 @@ class Word
   def update(name, definitions)
     @name = name
     @definitions = definitions
-  end
-
-  def delete()
-    @@words.delete(self.id)
   end
 
   def self.search(name)
