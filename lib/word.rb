@@ -5,6 +5,7 @@ class Word
 
   def initialize(name, definitions, id)
     @name = name
+    @definitions = []
     @id = id || @@rows += 1
   end
 
