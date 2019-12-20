@@ -1,5 +1,6 @@
 class Definition
   attr_reader :text, :id
+  
   @@definitions_list = {}
   @@def_rows = 0
 

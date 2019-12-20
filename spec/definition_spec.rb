@@ -47,4 +47,14 @@ describe '#Definition' do
     end
   end
 
+  describe('.find') do
+    it('should be able to find a definition by ID') do
+      definition1 = Definition.new('Something shiny', nil)
+      definition1.save
+      definition2 = Definition.new('Is really old', nil)
+      definition2.save
+      expect(Definition.find(2).text).to(eql(definition2.text))
+    end
+  end
+
 end
