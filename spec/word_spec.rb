@@ -9,9 +9,9 @@ describe '#Word' do
 
   describe('.all') do
     it('Shows all the words') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2 = Word.new("Cutenessvom", nil)
       word2.save
       expect(Word.all).to(eq([word1, word2]))
     end
@@ -19,9 +19,9 @@ describe '#Word' do
 
   describe('#==') do
     it('Tests overwrite of == operator to match words by name') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word2 = Word.new("Zoombini", nil)
       word2.save
       expect(word1).to(eq(word2))
     end
@@ -29,9 +29,9 @@ describe '#Word' do
 
   describe('.clear') do
     it('Tests clear function which should erase @@words list') do
-      word1 = Word.new("Zoombini", "A strange fluffy creature with mismatched features", nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2 = Word.new("Cutenessvom", nil)
       word2.save
       Word.clear
       expect(Word.all).to(eq([]))
@@ -40,7 +40,7 @@ describe '#Word' do
 
   describe('#save') do
     it('Saves a word to @@words_list class hash variable') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
       expect(Word.all).to(eq([word1]))
     end
@@ -48,9 +48,9 @@ describe '#Word' do
 
   describe('#delete') do
     it ('deletes a word from @@words_list') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2 = Word.new("Cutenessvom", nil)
       word2.save
       word1.delete
       expect(Word.all).to(eq([word2]))
@@ -59,9 +59,9 @@ describe '#Word' do
 
   describe('.find') do
     it ('finds a word from @@words_list by ID') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2 = Word.new("Cutenessvom", nil)
       word2.save
       expect(Word.find(2)).to(eq(word2))
     end
@@ -69,9 +69,9 @@ describe '#Word' do
 
   describe('.search') do
     it ('finds a word from @@words_list by name regardless of case') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word2 = Word.new("Cutenessvom", ["When something is so cute you vomit"], nil)
+      word2 = Word.new("Cutenessvom", nil)
       word2.save
       expect(Word.search('zOOm')).to(eq([word1]))
     end
@@ -79,9 +79,9 @@ describe '#Word' do
 
   describe('#update') do
     it('updates the information on a word') do
-      word1 = Word.new("Zoombini", ["A strange fluffy creature with mismatched features"], nil)
+      word1 = Word.new("Zoombini", nil)
       word1.save
-      word1.update("Goomzini", ["A weird crossover creature from Mario"])
+      word1.update("Goomzini")
       expect(word1.name).to(eq("Goomzini"))
     end
   end

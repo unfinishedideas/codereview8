@@ -66,15 +66,6 @@ describe '#Definition' do
     end
   end
 
-  describe('#update_word_id') do
-    it('should be able to update the word_id of a definition') do
-      definition1 = Definition.new('Something shiny', nil, 0)
-      definition1.save
-      definition1.update_word_id(5)
-      expect(definition1.word_id).to(eql(5))
-    end
-  end
-
   describe('#delete') do
     it('should delete a definition from @@definitions_list') do
       definition1 = Definition.new('Something shiny', nil, 0)

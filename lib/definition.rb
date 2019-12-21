@@ -35,10 +35,6 @@ class Definition
     @text = text
   end
 
-  def update_word_id(word_id)
-    @word_id = word_id
-  end
-
   def delete()
     @@definitions_list.delete(self.id)
   end
