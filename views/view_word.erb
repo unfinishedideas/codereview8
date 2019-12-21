@@ -3,8 +3,10 @@
 <h3>Definitions:</h3>
 <ol>
   <% @definitions_list.each do |definition| %>
+  <% if definition.word_id == @word.id %>
   <li><p class="def_text"><em><%= definition.text %></em></p></li>
-  <a href="<%= @word.id %>/definition/<%= definition.id %>">Edit</a>
+  <a class="small_link" href="<%= @word.id %>/definition/<%= definition.id %>">Edit</a>
+  <% end %>
   <% end %>
 </ol>
 <% else %>
@@ -12,5 +14,6 @@
 <a href="/new_definition">New Definition</a>
 <% end %>
 
+<a href="/home/word/<%= @word.id %>/new_definition">Add a Definition</a>
 <br>
 <a href="/home/ ">Back</a>

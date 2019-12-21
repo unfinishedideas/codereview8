@@ -22,7 +22,7 @@ hr {
 }
 
 a {
-  color: rgb(80,80,250);
+  color: rgb(120,100,250);
   font-weight: bold;
   font-size: 20px;
   text-shadow: 1px 1px 1px black;
@@ -47,4 +47,9 @@ a {
   width: 500px;
   border: 1px
   solid #999999;
+}
+
+.small_link {
+  font-size: 15px;
+  color: white;
 }

@@ -22,6 +22,12 @@ get('/home/new_word') do
   erb(:new_word)
 end
 
+get('/home/word/:word_id/definition/:definition_id') do
+  @word = Word.find(params[:word_id].to_i)
+  @definition = Definition.find(params[:definition_id].to_i)
+  erb(:edit_definition)
+end
+
 # Get View Word page
 get('/home/word/:word_id') do
   @word = Word.find(params[:word_id].to_i())
@@ -57,12 +63,22 @@ post('/home') do
   erb(:home)
 end
 
-# Delete a definition
-delete('/home/word/:word_id/definition/:definition_id/edit') do
+# Update a definition
+patch('/home/word/:word_id/definition/:definition_id') do
   @word = Word.find(params[:word_id].to_i)
   @definition = Definition.find(params[:definition_id].to_i)
-  @definition.delete
-  @word.update(@word.name, @word.definitions)
+  text = params[:redefine_input]
+  @definition.update(text)
+  @definitions_list = Definition.all()
   erb(:view_word)
-  binding.pry
 end
+
+# Delete a definition
+# delete('/home/word/:word_id/definition/:definition_id/edit') do
+#   @word = Word.find(params[:word_id].to_i)
+#   @definition = Definition.find(params[:definition_id].to_i)
+#   @definition.delete
+#   @word.update(@word.name, @word.definitions)
+#   binding.pry
+#   erb(:view_word)
+# end
