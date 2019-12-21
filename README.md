@@ -24,7 +24,10 @@ This page is where the user can change the wording of a definition
 * Type: Ruby App.rb from the root directory and navigate to localhost:4567 on your browser
 
 ## Heroku
-To view on Heroku go to __
+To view on `Heroku` go to _https://protected-wave-64513.herokuapp.com/home/new_word_
+
+## Known Bugs
+* Strange pathing error when editing a word's definition and trying to re-enter the edit screen.
 
 ## Support and contact
 If you have any issues viewing this site or any general questions about how to open please email me at
