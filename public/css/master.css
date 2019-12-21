@@ -1,0 +1,37 @@
+body {
+  /* background-color: rgb(280 , 150, 200); */
+  background-color: rgb(50,50,50);
+  color: rgb(204, 97, 255);
+  text-shadow: 2px 2px 2px black;
+}
+
+.title_text {
+  font-variant: small-caps;
+  text-align: center;
+}
+
+hr {
+  border-color: rgb(200, 97, 250);
+}
+
+a {
+  color: rgb(80,80,250);
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.def_text {
+  font-size: 25px;
+}
+
+.page_header {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.containment {
+  margin-left: 15%;
+  margin-right: 15%;
+}

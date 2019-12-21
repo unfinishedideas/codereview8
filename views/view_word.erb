@@ -1,9 +1,9 @@
 <h2 class="page_header"><%= @word.name %></h2>
 <% if @definitions_list.any? %>
-<h3>Definitions</h3>
+<h3>Definitions:</h3>
 <ol>
   <% @definitions_list.each do |definition| %>
-  <li><p><em><%= definition.text %></em></p></li>
+  <li><p class="def_text"><em><%= definition.text %></em></p></li>
   <a href="<%= @word.id %>/definition/<%= definition.id %>">Edit</a>
   <% end %>
 </ol>
@@ -11,3 +11,5 @@
 <h3>Currently has no definitions!</h3>
 <a href="/new_definition">New Definition</a>
 <% end %>
+
+<a href="/home/">Back</a>
